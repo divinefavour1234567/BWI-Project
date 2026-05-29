@@ -1,0 +1,43 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Represents an authenticated sovereign command operator",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "The unique user ID from Firebase Auth" },
+        "email": { "type": "string", "description": "The verify-validated operator email list" },
+        "displayName": { "type": "string", "description": "Human name of command operator" },
+        "photoURL": { "type": "string", "description": "Avatar list URL representation" },
+        "role": {
+          "type": "string",
+          "enum": ["Admin", "Government Analyst", "Security Analyst", "Healthcare Analyst", "Agricultural Analyst", "General User"],
+          "description": "Enterprise role-based security clearance level list"
+        },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Timestamp when provider registered" },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Timestamp when changes occur" }
+      },
+      "required": ["uid", "email", "displayName", "role", "createdAt", "updatedAt"]
+    },
+    "AdminConfig": {
+      "title": "AdminConfig",
+      "description": "Bootstrapped authorization entry for special admin verification",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "isBootstrapped": { "type": "boolean" }
+      },
+      "required": ["email", "isBootstrapped"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Profile data for users containing roles and metadata"
+    },
+    "/admins/{adminId}": {
+      "schema": "AdminConfig",
+      "description": "Lookup register for system administrator accounts"
+    }
+  }
+}

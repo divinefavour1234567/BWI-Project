@@ -1,0 +1,8 @@
+{
+  "name": "Africa Intelligence Grid",
+  "description": "AI-Powered Infrastructure Intelligence Sovereign Operating System designed to solve high-impact flooding, security, grid energy, agricultural, governance, healthcare, and urban planning challenges in Africa.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
